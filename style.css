@@ -1,6 +1,14 @@
 body {
-    background-image: url(img/herbs.jpg);
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: url('img/herbs.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height:100vh;
+}
+
+.main-section {
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
