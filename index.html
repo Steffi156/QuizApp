@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="script.js"></script>
 </head>
-<body>
 
+<body onload="init()">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">Von-Allem-Etwas-Quiz</span>
@@ -21,35 +21,35 @@
   <div class="card" style="width: 500px;">
     <img src="img/breitwegerrich.jpg" class="card-img-top">
     <div class="card-body">
-      <h5 class="card-title mb-3">Frage</h5>
+      <h5 id="quizQuestion" class="card-title mb-3">Frage</h5>
       
-      <div class="card mb-2">
-        <div class="card-body">
+      <div class="card mb-2 hover-pointer" onclick="answer1()">
+        <div id="answer1" class="card-body">
           Antwort
         </div>
       </div>
 
-      <div class="card mb-2">
-        <div class="card-body">
+      <div class="card mb-2 hover-pointer" onclick="answer2()">
+        <div id="answer2" class="card-body">
          Antwort
         </div>
       </div>
 
-      <div class="card mb-2">
-        <div class="card-body">
+      <div class="card mb-2 hover-pointer" onclick="answer3()">
+        <div id="answer3" class="card-body">
           Antwort
         </div>
       </div>
 
-      <div class="card mb-3">
-        <div class="card-body">
+      <div class="card mb-3 hover-pointer" onclick="answer4()">
+        <div id="answer4" class="card-body">
          Antwort
         </div>
       </div>
 
       <div class="quiz-footer pt-3">
-        <span>Frage <b>1</b> von <b>5</b></span>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <span>Frage <b id="quantityOfQuestion">1</b> von <b id="numberOfAllQuestions">5</b></span>
+        <a href="#" class="btn btn-primary">Weiter</a>
       </div>
     </div>
   </div>
