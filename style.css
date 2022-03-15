@@ -7,6 +7,7 @@ body {
 }
 
 .main-section {
+    background-color: rgba(0,0,0,0.1);
     height: calc(100vh - 50px);
     display: flex;
     justify-content: center;
@@ -18,4 +19,18 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.bg-success, .bg-danger {
+    color: white;
+}
+
+
+.hover-pointer {
+    cursor: pointer;
+}
+
+.blackscreen {
+    z-index: 900;
+    background-color: black;
 }
