@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizApp</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body onload="init()">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Von-Allem-Etwas-Quiz</span>
+    </div>
+  </nav>
+
+<div class="main-section" id="endScreen">
+  <div class="card" style="width: 500px;">
+    <img id="question-image" src="img/win.jpg" class="card-img-top">
+    <div class="win-document">
+      <b>Klasse!</b><br>
+      du hast<br>
+      <b id="folgt">xxx</b><br>
+      von<br>
+      <b id="win-number-of-all-questions">xxx</b><br>
+      richtig<br>
+      beantwortet!
+    </div>
+    <div class="card-body mt-4">
+      <h5 id="quiz-question" class="card-title mb-3">Glückwunsch, du hast das Quiz beendet!</h5>
+      <p>Aber Achtung, verzehre nur Pflanzen bei den dir du absolut sicher bist das sie bekömlich sind!</p>
+    </div>
+  </div>
+</div>
+    
+    
+</body>
+</html>

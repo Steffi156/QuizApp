@@ -1,5 +1,14 @@
 let questions = [
     {
+        "image": "img/schneegloeckchen.jpg",
+        "question": "Wie heißt diese Blume?",
+        "answer_1": "Tulpe",
+        "answer_2": "Schneeglöckchen",
+        "answer_3": "Löwenzahn",
+        "answer_4": "Narzisse",
+        "right_answer": 2
+    },
+    {
         "image": "img/breitwegerrich.jpg",
         "question": "Ist Breitwegerrich giftig?",
         "answer_1": "Nein, den kann man essen wie Salat.",
@@ -9,27 +18,37 @@ let questions = [
         "right_answer": 1
     },
     {
-        "image": "img/fingerhut.jpg",
-        "question": "Ist fingerhut giftig?",
-        "answer_1": "Nein, den kann man essen wie Salat.",
-        "answer_2": "Roh ein wenig, aber gekocht kann man ihn doch geniesen.",
-        "answer_3": "Kann starke Margenkräpfe verursachen, am besten nicht anfassen.",
-        "answer_4": "Aber so was von, dem sollte man nicht zu nah kommen.",
-        "right_answer": 3
+        "image": "img/wegwarte.jpg",
+        "question": "Was trifft auf die Wegwarte nicht zu?",
+        "answer_1": "Blätter können im Frühling für Salat verwendet werden.",
+        "answer_2": "Aus ihrer Wurzel kann Zichorienkaffee hergestellt werden.",
+        "answer_3": "Die Blüten sind essbar und kandiert eine Leckerei",
+        "answer_4": "Ihre Blätter sind Herzförmig mit weißer spitze",
+        "right_answer": 4
     },
     {
         "image": "img/fingerhut.jpg",
-        "question": "Frage?",
-        "answer_1": "Antwort_1",
-        "answer_2": "Antwort_2",
-        "answer_3": "Antwort_3",
-        "answer_4": "Antwort_4",
-        "right_answer": 2
-    },
+        "question": "Ist fingerhut giftig?",
+        "answer_1": "Nein, aber schmeckt nicht.",
+        "answer_2": "Nur während Vollmond.",
+        "answer_3": "Er ist hochgradig giftig, der verzehr kann zum tod führen!",
+        "answer_4": "Der tötet alles umkreis von 3 Metern, bleib weg!",
+        "right_answer": 3
+    },    
+    {
+        "image": "img/malve.jpg",
+        "question": "Wofür ist sie bekannt?",
+        "answer_1": "Als Heilpflanze, bei Entzündungen (Mund- und Rachenraum).",
+        "answer_2": "Als endloses Unkraut.",
+        "answer_3": "Das sie Nachts hellbalu leuchtet.",
+        "answer_4": "Als die teuerste Gartenpflanze.",
+        "right_answer": 1
+    }
 ]
 
 
 let nowQuestion = 0;
+let rightAnswer =0;
 
 
 function init() {
@@ -40,7 +59,10 @@ function init() {
 
 function showQuestion() {
     if (nowQuestion >= questions.length) {
-        finalScreen();
+        document.getElementById('end-screen').style = '';
+        document.getElementById('question-screen').style = 'display: none';
+        document.getElementById('win-number-of-all-questions').innerHTML = questions.length;
+        document.getElementById('win-right-answer').innerHTML = rightAnswer;
     } else {
         let question = questions[nowQuestion];
         document.getElementById('question-image').src = question['image'];
@@ -66,6 +88,7 @@ function answer(selection) {
     if (selectedNumber == question['right_answer']) { //pr+üft ob die gewonnene Zahl und die zahl aus dem array gleich sind
         console.log('Richtige Antwort');
         document.getElementById(selection).parentNode.classList.add('bg-success'); //.parentNode bedeuted das nicht auf die klasse mit der id zugegriffen wird, sondern auf die übergeordnete
+        rightAnswer++;
     } else {
         console.log('Falsche Antwort');
         document.getElementById(selection).parentNode.classList.add('bg-danger');
@@ -85,11 +108,3 @@ function nextQuestion() {
     document.getElementById('answer4').parentNode.classList.remove('bg-success', 'bg-danger');
 }
 
-
-function finalScreen() {
-    document.getElementById('question-image').src = ('img/herbs.jpg');
-    document.getElementById('answer1').parentNode.innerHTML = '';
-    document.getElementById('answer2').parentNode.innerHTML = '';
-    document.getElementById('answer3').parentNode.innerHTML = '';
-    document.getElementById('answer4').parentNode.innerHTML = '';
-}

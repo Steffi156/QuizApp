@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body onload="init()">
@@ -17,7 +20,7 @@
     </div>
   </nav>
 
-<div class="main-section">
+<div class="main-section" id="question-screen">
   <div class="card" style="width: 500px;">
     <img id="question-image" src="img/breitwegerrich.jpg" class="card-img-top">
     <div class="card-body">
@@ -51,6 +54,26 @@
         <span>Frage <b id="number-of-question">0</b> von <b id="number-of-all-questions">5</b></span>
         <button id="next-question" class="btn btn-primary" onclick="nextQuestion()" disabled>Weiter</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-section" id="end-screen" style="display: none">
+  <div class="card" style="width: 500px;">
+    <img id="question-image" src="img/win.jpg" class="card-img-top">
+    <div class="win-document">
+      <b>Klasse!</b><br>
+      du hast<br>
+      <b id="win-right-answer">xxx</b><br>
+      von<br>
+      <b id="win-number-of-all-questions">xxx</b><br>
+      Fragen richtig<br>
+      beantwortet!
+    </div>
+    <div class="card-body mt-4">
+      <h5 id="quiz-question" class="card-title mb-3">Glückwunsch, du hast das Quiz beendet!</h5>
+      <p>Aber Achtung, verzehre nur Pflanzen bei den dir du absolut sicher bist, dass sie bekömmlich sind!<br>
+      Es gibt viele Pflanzen die sich ähneln, manche sind Giftig, andere Nutzbar.</p>
     </div>
   </div>
 </div>
