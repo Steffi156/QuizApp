@@ -34,7 +34,7 @@ let questions = [
         "answer_3": "Er ist hochgradig giftig, der verzehr kann zum tod führen!",
         "answer_4": "Der tötet alles umkreis von 3 Metern, bleib weg!",
         "right_answer": 3
-    },    
+    },
     {
         "image": "img/malve.jpg",
         "question": "Wofür ist sie bekannt?",
@@ -48,7 +48,13 @@ let questions = [
 
 
 let nowQuestion = 0;
-let rightAnswer =0;
+let rightAnswer = 0;
+
+let AUDIO_RIGHT = new Audio('sound/correct.mp3');
+    AUDIO_RIGHT.volume = 0.4;
+let AUDIO_WRONG = new Audio('sound/wrong.mp3');
+    AUDIO_WRONG.volume = 0.2;
+let AUDIO_RESTART = new Audio('sound/bird.mp3');
 
 
 function init() {
@@ -58,43 +64,76 @@ function init() {
 
 
 function showQuestion() {
-    if (nowQuestion >= questions.length) {
-        document.getElementById('end-screen').style = '';
-        document.getElementById('question-screen').style = 'display: none';
-        document.getElementById('win-number-of-all-questions').innerHTML = questions.length;
-        document.getElementById('win-right-answer').innerHTML = rightAnswer;
+    if (gameIsOver()) {
+        showEndScreen();
     } else {
-        let question = questions[nowQuestion];
-        document.getElementById('question-image').src = question['image'];
-        document.getElementById('quiz-question').innerHTML = question['question'];
-        document.getElementById('answer1').innerHTML = question['answer_1'];
-        document.getElementById('answer2').innerHTML = question['answer_2'];
-        document.getElementById('answer3').innerHTML = question['answer_3'];
-        document.getElementById('answer4').innerHTML = question['answer_4'];
-        document.getElementById('number-of-question').innerHTML = nowQuestion + 1;
+        updateProgressBar();
+        updateNextQuestion();
     }
+}
+
+function gameIsOver() {
+    return nowQuestion >= questions.length;
+}
+
+
+function showEndScreen() {
+    document.getElementById('end-screen').style = '';
+    document.getElementById('question-screen').style = 'display: none';
+    document.getElementById('win-number-of-all-questions').innerHTML = questions.length;
+    document.getElementById('win-right-answer').innerHTML = rightAnswer;
+}
+
+function updateProgressBar() {
+    let checkAmountOfRightQuestions = (nowQuestion + 1) / questions.length;
+    checkAmountOfRightQuestions = Math.round(checkAmountOfRightQuestions * 100);
+    document.getElementById('progress-bar').innerHTML = `${checkAmountOfRightQuestions}%`;
+    document.getElementById('progress-bar').style.width = `${checkAmountOfRightQuestions}%`;
+}
+
+
+function updateNextQuestion() {
+    let question = questions[nowQuestion]; //questions
+    document.getElementById('question-image').src = question['image'];
+    document.getElementById('quiz-question').innerHTML = question['question'];
+    document.getElementById('answer1').innerHTML = question['answer_1'];
+    document.getElementById('answer2').innerHTML = question['answer_2'];
+    document.getElementById('answer3').innerHTML = question['answer_3'];
+    document.getElementById('answer4').innerHTML = question['answer_4'];
+    document.getElementById('number-of-question').innerHTML = nowQuestion + 1;
 }
 
 
 function answer(selection) {
     let question = questions[nowQuestion]; //bezieht sich auf Array an stelle 0
-    console.log('selected answer is ', selection); //gibt id der ausgewälten antwort wieder z.b. answer2
     let selectedNumber = selection.slice(-1); //gibt nur noch die letzte ziffer der ausgewählten id wieder z.b. 2
-    console.log('selection Number is ', selectedNumber); //gibt gewonnene Zahl in console aus
-    console.log('Current question is ', question['right_answer']); //gibt den wert hinter right_answer aus dem Array an stelle 0 wieder
-
     let idForRightAnswer = `answer${question['right_answer']}`;
 
-    if (selectedNumber == question['right_answer']) { //pr+üft ob die gewonnene Zahl und die zahl aus dem array gleich sind
-        console.log('Richtige Antwort');
-        document.getElementById(selection).parentNode.classList.add('bg-success'); //.parentNode bedeuted das nicht auf die klasse mit der id zugegriffen wird, sondern auf die übergeordnete
-        rightAnswer++;
+    if (checkCurrentQuestion(selectedNumber, question)) { //prüft ob die gewonnene Zahl und die Zahl aus dem array gleich sind
+        PlayThrRightAnswer(selection);
     } else {
-        console.log('Falsche Antwort');
-        document.getElementById(selection).parentNode.classList.add('bg-danger');
-        document.getElementById(idForRightAnswer).parentNode.classList.add('bg-success');
+        PlayThrWrongAnswer(selection, idForRightAnswer);
     }
     document.getElementById('next-question').disabled = false; //entsperrt button (truh ist gesperrt)
+}
+
+
+function checkCurrentQuestion(selectedNumber, question) {
+    return selectedNumber == question['right_answer'];
+}
+
+
+function PlayThrRightAnswer(selection) {
+    document.getElementById(selection).parentNode.classList.add('bg-success'); //.parentNode bedeuted das nicht auf die klasse mit der id zugegriffen wird, sondern auf die übergeordnete
+    AUDIO_RIGHT.play();
+    rightAnswer++;
+}
+
+
+function PlayThrWrongAnswer(selection, idForRightAnswer) {
+    document.getElementById(selection).parentNode.classList.add('bg-danger');
+    document.getElementById(idForRightAnswer).parentNode.classList.add('bg-success');
+    AUDIO_WRONG.play();
 }
 
 
@@ -106,5 +145,14 @@ function nextQuestion() {
     document.getElementById('answer2').parentNode.classList.remove('bg-success', 'bg-danger');
     document.getElementById('answer3').parentNode.classList.remove('bg-success', 'bg-danger');
     document.getElementById('answer4').parentNode.classList.remove('bg-success', 'bg-danger');
+}
+
+function restart() {
+    document.getElementById('end-screen').style = 'display: none';
+    document.getElementById('question-screen').style = '';
+    nowQuestion = 0;
+    rightAnswer = 0;
+    AUDIO_RESTART.play();
+    init();
 }
 
