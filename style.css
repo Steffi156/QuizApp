@@ -7,7 +7,7 @@ body {
 }
 
 .main-section {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     height: calc(100vh - 50px);
     display: flex;
     justify-content: center;
@@ -45,4 +45,11 @@ body {
     text-align: center;
     font-family: 'Caveat', cursive;
     font-size: 19px;
+}
+
+@media screen and (max-height: 885px) {
+    body {
+        height: 100%;
+        background-size: auto;
+    }
 }

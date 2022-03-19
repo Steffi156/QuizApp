@@ -54,7 +54,6 @@ let AUDIO_RIGHT = new Audio('sound/correct.mp3');
     AUDIO_RIGHT.volume = 0.4;
 let AUDIO_WRONG = new Audio('sound/wrong.mp3');
     AUDIO_WRONG.volume = 0.2;
-let AUDIO_RESTART = new Audio('sound/bird.mp3');
 
 
 function init() {
@@ -83,6 +82,7 @@ function showEndScreen() {
     document.getElementById('win-number-of-all-questions').innerHTML = questions.length;
     document.getElementById('win-right-answer').innerHTML = rightAnswer;
 }
+
 
 function updateProgressBar() {
     let checkAmountOfRightQuestions = (nowQuestion + 1) / questions.length;
@@ -152,7 +152,7 @@ function restart() {
     document.getElementById('question-screen').style = '';
     nowQuestion = 0;
     rightAnswer = 0;
-    AUDIO_RESTART.play();
+    AUDIO_RIGHT.play();
     init();
 }
 
