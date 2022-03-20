@@ -47,6 +47,28 @@ body {
     font-size: 19px;
 }
 
+.shake {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both !important;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
 @media screen and (max-height: 885px) {
     body {
         height: 100%;

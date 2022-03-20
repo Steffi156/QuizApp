@@ -66,7 +66,7 @@ function showQuestion() {
     if (gameIsOver()) {
         showEndScreen();
     } else {
-        updateProgressBar();
+        progressBar();
         updateNextQuestion();
     }
 }
@@ -84,8 +84,8 @@ function showEndScreen() {
 }
 
 
-function updateProgressBar() {
-    let checkAmountOfRightQuestions = (nowQuestion + 1) / questions.length;
+function progressBar() {
+    let checkAmountOfRightQuestions = (nowQuestion) / questions.length;
     checkAmountOfRightQuestions = Math.round(checkAmountOfRightQuestions * 100);
     document.getElementById('progress-bar').innerHTML = `${checkAmountOfRightQuestions}%`;
     document.getElementById('progress-bar').style.width = `${checkAmountOfRightQuestions}%`;
@@ -108,6 +108,7 @@ function answer(selection) {
     let question = questions[nowQuestion]; //bezieht sich auf Array an stelle 0
     let selectedNumber = selection.slice(-1); //gibt nur noch die letzte ziffer der ausgewählten id wieder z.b. 2
     let idForRightAnswer = `answer${question['right_answer']}`;
+    updateProgressBar();
 
     if (checkCurrentQuestion(selectedNumber, question)) { //prüft ob die gewonnene Zahl und die Zahl aus dem array gleich sind
         PlayThrRightAnswer(selection);
@@ -115,6 +116,14 @@ function answer(selection) {
         PlayThrWrongAnswer(selection, idForRightAnswer);
     }
     document.getElementById('next-question').disabled = false; //entsperrt button (truh ist gesperrt)
+}
+
+
+function updateProgressBar() {
+    let checkAmountOfRightQuestions = (nowQuestion + 1) / questions.length;
+    checkAmountOfRightQuestions = Math.round(checkAmountOfRightQuestions * 100);
+    document.getElementById('progress-bar').innerHTML = `${checkAmountOfRightQuestions}%`;
+    document.getElementById('progress-bar').style.width = `${checkAmountOfRightQuestions}%`;
 }
 
 
@@ -132,8 +141,14 @@ function PlayThrRightAnswer(selection) {
 
 function PlayThrWrongAnswer(selection, idForRightAnswer) {
     document.getElementById(selection).parentNode.classList.add('bg-danger');
+    document.getElementById(selection).parentNode.classList.add('shake');
     document.getElementById(idForRightAnswer).parentNode.classList.add('bg-success');
     AUDIO_WRONG.play();
+}
+
+
+function blockAllAnswers() {
+    document.getElementById(selection).parentNode.classList.add('pointer-events-none');
 }
 
 
