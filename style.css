@@ -1,17 +1,62 @@
 body {
     min-height: 100vh;
     min-width: 100vw;
-    background-image: url('img/herbs.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+}
+
+.index{
+    z-index: 999;
+}
+h1 {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    font-size: 50px !important;
+    color: #fce116;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-shadow: 0px 0px 0 rgb(235,208,5),
+                 1px 1px 0 rgb(218,191,0),
+                 2px 2px  0 rgb(201,174,0),
+                 3px 3px 2px rgba(0,0,0,0.53),
+                 3px 3px 1px rgba(0,0,0,0.5),
+                 0px 0px 2px rgba(0,0,0,.2);
+ }
+
+ h2 {
+     margin: 20px 30px !important;
+     text-align: center;
+ }
+
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sound {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
 }
 
 .main-section {
-    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50px;
+    left: calc((100vw - 500px) / 2);
     height: calc(100vh - 50px);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.height600 {
+    height: 600px
+}
+
+.transparency {
+    background-color: rgba(255, 255, 255, 0.4) !important;
 }
 
 .navbar {
@@ -40,13 +85,239 @@ body {
 
 .win-document {
     position: absolute;
-    top: 42px;
+    top: 64px;
     left: 80px;
     text-align: center;
     font-family: 'Caveat', cursive;
     font-size: 19px;
 }
 
+/*left-top-circle*/
+
+.little-left-top-circle {
+    width: 150px;
+    height:150px;
+    border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
+    background-color:rgba(116, 173, 10, 0.9);
+    display: flex;
+    position: absolute;
+    top: 180px;
+    left: 90px;
+}
+
+.img-left-top-circle {
+    width: 200px;
+    height:200px;
+    margin: 20px;
+    object-fit: cover;
+    border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
+    display: flex;
+    position: absolute;
+    top: 110px;
+    left: 20px;
+}
+
+.text-left-top-circle {
+    color: white;
+    font-size: 20px;;
+    width: 200px;
+    height:200px;
+    border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
+    display: flex;
+    position: absolute;
+    top: 250px;
+    left: 140px;
+}
+
+.hover-left-top-circle {
+    width: 200px;
+    height:200px;
+    border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
+    display: flex;
+    position: absolute;
+    top: 130px;
+    left: 40px;
+}
+
+.hover-left-top-circle:hover {
+    cursor: pointer;
+    width: 200px;
+    height:200px;
+    border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
+    background-color:rgba(239, 255, 61, 0.12);
+    border: solid 2px white;
+}
+
+/*right-top-circle*/
+
+.little-right-top-circle {
+    width: 150px;
+    height:150px;
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
+    background-color:rgba(116, 173, 10, 0.9);
+    display: flex;
+    position: absolute;
+    top: 180px;
+    left: 260px;
+}
+
+.img-right-top-circle {
+    display: flex;
+    position: absolute;
+    top: 120px;
+    left: 250px;
+    width: 200px;
+    height:200px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
+}
+
+.text-right-top-circle {
+    color: white;
+    font-size: 20px;;
+    width: 200px;
+    height:200px;
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
+    display: flex;
+    position: absolute;
+    top: 250px;
+    left: 295px;
+}
+
+.hover-right-top-circle {
+    width: 200px;
+    height:200px;
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
+    display: flex;
+    position: absolute;
+    top: 130px;
+    left: 260px;
+}
+
+.hover-right-top-circle:hover {
+    cursor: pointer;
+    width: 200px;
+    height:200px;
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
+    background-color:rgba(239, 255, 61, 0.12);
+    border: solid 2px white;
+}
+
+/*left-bottom-circle*/
+
+.little-left-bottom-circle {
+    width: 150px;
+    height:150px;
+    border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
+    background-color:rgba(116, 173, 10, 0.9);
+    display: flex;
+    position: absolute;
+    top: 350px;
+    left: 90px;
+}
+
+.img-left-bottom-circle {
+    width: 200px;
+    height:200px;
+    margin: 20px;
+    object-fit: cover;
+    border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
+    display: flex;
+    position: absolute;
+    top: 330px;
+    left: 20px;
+}
+
+.text-left-bottom-circle {
+    color: white;
+    font-size: 20px;;
+    width: 200px;
+    height:200px;
+    border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
+    display: flex;
+    position: absolute;
+    top: 395px;
+    left: 140px;
+}
+
+.hover-left-bottom-circle {
+    width: 200px;
+    height:200px;
+    border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
+    display: flex;
+    position: absolute;
+    top: 350px;
+    left: 40px;
+}
+
+.hover-left-bottom-circle:hover {
+    cursor: pointer;
+    width: 200px;
+    height:200px;
+    border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
+    background-color:rgba(239, 255, 61, 0.12);
+    border: solid 2px white;
+}
+
+/*right-bottom-circle*/
+
+.little-right-bottom-circle {
+    width: 150px;
+    height:150px;
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
+    background-color:rgba(116, 173, 10, 0.9);
+    display: flex;
+    position: absolute;
+    top: 350px;
+    left: 260px;
+}
+
+.img-right-bottom-circle {
+    display: flex;
+    position: absolute;
+    top: 340px;
+    left: 250px;
+    width: 200px;
+    height:200px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
+}
+
+.text-right-bottom-circle {
+    color: white;
+    font-size: 20px;;
+    width: 200px;
+    height:200px;
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
+    display: flex;
+    position: absolute;
+    top: 365px;
+    left: 280px;
+    text-align: center;
+}
+
+.hover-right-bottom-circle {
+    width: 200px;
+    height:200px;
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
+    display: flex;
+    position: absolute;
+    top: 350px;
+    left: 260px;
+}
+
+.hover-right-bottom-circle:hover {
+    cursor: pointer;
+    width: 200px;
+    height:200px;
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
+    background-color:rgba(239, 255, 61, 0.12);
+    border: solid 2px white;
+}
+
+/*
 .shake {
     animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both !important;
 }
@@ -68,6 +339,7 @@ body {
         transform: translate3d(4px, 0, 0);
     }
 }
+*/
 
 @media screen and (max-height: 885px) {
     body {

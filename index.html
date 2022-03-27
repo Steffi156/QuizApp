@@ -1,92 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizApp</title>
-    <link rel="icon" typ="image/x-icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <script src="script.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizApp</title>
+  <link rel="icon" typ="image/x-icon" href="img/logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="script.js"></script>
+  <script src="script-arrays.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<body onload="init()">
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">Quizrunde</span>
-    </div>
-  </nav>
+<body>
 
-<div class="main-section" id="question-screen">
-  <div class="card" style="width: 500px;">
-    <img id="question-image" src="img/breitwegerrich.jpg" class="card-img-top">
+  <video src="video/nature.mp4" autoplay loop playsinline muted></video>
+  <audio class="sound" autoplay loop controls>
+    <source src="sound/main-sound.mp3" type="audio/mpeg">
+  </audio>
 
-    <div class="progress">
-      <div class="progress-bar bg-success" id="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
 
-    <div class="card-body">
-      <h5 id="quiz-question" class="card-title mb-3">Frage</h5>
+  <h1>Wald- und Wiesenquiz</h1>
 
-     
-      <div class="card mb-2 hover-pointer" onclick="answer('answer1')" disabled>
-        <div id="answer1" class="card-body">
-          Antwort
+
+  <div class="main-section">
+    <div id="startAGame">
+      <div class="transparency card" style="width: 500px;">
+        <div class="height600">
+          <h2>In welchem Thema möchtest du dein Wissen Testen?</h2>
+          <div>
+            <div class="top">
+              <div>
+                <img class="img-left-top-circle" src="img/flowers/quiz-flower.png">
+                <div class="little-left-top-circle"></div>
+                <span class="text-left-top-circle">Blumen</span>
+                <div class="hover-left-top-circle" onclick="flowerQuiz()"></div>
+              </div>
+              <div>
+                <img class="img-right-top-circle" src="img/trees/quiz-tree.png">
+                <div class="little-right-top-circle"></div>
+                <span class="text-right-top-circle">Bäume</span>
+                <div class="hover-right-top-circle" onclick="treeQuiz()"></div>
+              </div>
+            </div>
+            <div class="top">
+              <div>
+                <img class="img-left-bottom-circle" src="img/herbs/herb.jpg">
+                <div class="little-left-bottom-circle"></div>
+                <span class="text-left-bottom-circle">Kräuter</span>
+                <div class="hover-left-bottom-circle" onclick="herbQuiz()"></div>
+              </div>
+              <div>
+                <img class="img-right-bottom-circle" src="img/edible-wild-plants/breitwegerrich - Kopie.jpg">
+                <div class="little-right-bottom-circle"></div>
+                <span class="text-right-bottom-circle">essbare<br>Wild-<br>pflanzen</span>
+                <div class="hover-right-bottom-circle" onclick="wildPlantsQuiz()"></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="card mb-2 hover-pointer" onclick="answer('answer2')" disabled>
-        <div id="answer2" class="card-body">
-         Antwort
-        </div>
-      </div>
-
-      <div class="card mb-2 hover-pointer" onclick="answer('answer3')" disabled>
-        <div id="answer3" class="card-body">
-          Antwort
-        </div>
-      </div>
-
-      <div class="card mb-3 hover-pointer" onclick="answer('answer4')" disabled>
-        <div id="answer4" class="card-body">
-         Antwort
-        </div>
-      </div>
-
-      <div class="quiz-footer pt-3">
-        <span>Frage <b id="number-of-question">0</b> von <b id="number-of-all-questions">5</b></span>
-        <button id="next-question" class="btn btn-success" onclick="nextQuestion()" disabled>Weiter</button>
       </div>
     </div>
   </div>
-</div>
 
-<div class="main-section" id="end-screen" style="display: none">
-  <div class="card" style="width: 500px;">
-    <img id="question-image" src="img/win.jpg" class="card-img-top">
-    <div class="win-document">
-      <b>Klasse!</b><br>
-      du hast<br>
-      <b id="win-right-answer">xxx</b><br>
-      von<br>
-      <b id="win-number-of-all-questions">xxx</b><br>
-      Fragen richtig<br>
-      beantwortet!
-    </div>
-    <div class="card-body mt-4">
-      <h5 id="quiz-question" class="card-title mb-3">Glückwunsch, du hast das Quiz beendet!</h5>
-      <p>Aber Achtung, verzehre nur Pflanzen bei den dir du absolut sicher bist, dass sie bekömmlich sind!<br>
-      Es gibt viele Pflanzen die sich ähneln, manche sind Giftig, andere Nutzbar.</p>
-    </div>
+  <div id="show-question" style="display: none">
+    <div class="main-section" id="question-screen">
+      <div class="card" style="width: 500px;">
+        <img id="question-image" src="img/start-screen.jpg" class="card-img-top">
 
-    <button onclick="restart()" type="button" class="btn btn-success">Spiel wiederholen</button>
+        <div class="progress">
+          <div class="progress-bar bg-success" id="progress-bar" role="progressbar" style="width: 25%"
+            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+        <div class="card-body">
+          <h5 id="quiz-question" class="card-title mb-3">Frage</h5>
+
+
+          <div class="card mb-2 hover-pointer" onclick="answer('answer1')" disabled>
+            <div id="answer1" class="card-body">
+              Antwort
+            </div>
+          </div>
+
+          <div class="card mb-2 hover-pointer" onclick="answer('answer2')" disabled>
+            <div id="answer2" class="card-body">
+              Antwort
+            </div>
+          </div>
+
+          <div class="card mb-2 hover-pointer" onclick="answer('answer3')" disabled>
+            <div id="answer3" class="card-body">
+              Antwort
+            </div>
+          </div>
+
+          <div class="card mb-3 hover-pointer" onclick="answer('answer4')" disabled>
+            <div id="answer4" class="card-body">
+              Antwort
+            </div>
+          </div>
+
+          <div class="quiz-footer pt-3">
+            <span>Frage <b id="number-of-question">0</b> von <b id="number-of-all-questions">5</b></span>
+            <button id="next-question" class="btn btn-success" onclick="nextQuestion()" disabled>Weiter</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-    
-    
+
+  <div class="main-section" id="end-screen" style="display: none">
+    <div class="card" style="width: 500px;">
+      <img id="question-image" src="img/win.jpg" class="card-img-top">
+      <div class="win-document">
+        Du hast<br>
+        <b id="win-right-answer">xxx</b><br>
+        von<br>
+        <b id="win-number-of-all-questions">xxx</b><br>
+        Fragen richtig<br>
+        beantwortet!
+      </div>
+      <div class="card-body mt-4">
+        <h5 id="quiz-question" class="card-title mb-3">Glückwunsch, du hast das Quiz beendet!</h5>
+        <p>Aber Achtung, verzehre nur Pflanzen bei den dir du absolut sicher bist, dass sie bekömmlich sind!<br>
+          Es gibt viele Pflanzen die sich ähneln, manche sind Giftig, andere Nutzbar.</p>
+      </div>
+
+      <button onclick="restart()" type="button" class="btn btn-success">zurück zum Hauptmenü</button>
+    </div>
+  </div>
+  </div>
+
+
 </body>
+
 </html>
