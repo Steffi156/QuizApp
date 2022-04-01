@@ -4,49 +4,49 @@ let rightAnswer = 0;
 let AUDIO_RIGHT = new Audio('sound/correct.mp3');
     AUDIO_RIGHT.volume = 0.2;
 let AUDIO_WRONG = new Audio('sound/wrong.mp3');
-    AUDIO_WRONG.volume = 0.05;
+    AUDIO_WRONG.volume = 0.1;
 
-function flowerQuiz() {
+function theQuiz(i) {
     document.getElementById('startAGame').style = 'display: none';
     document.getElementById('show-question').style = '';
-    document.getElementById('number-of-all-questions').innerHTML = flowerQuestions.length;
+    document.getElementById('number-of-all-questions').innerHTML = topic[i].questions.length;
     AUDIO_RIGHT.play(); 
-    showQuestion();
-}
+    showQuestion(i);
+    }
 
 
-function showQuestion() {
-    if (gameIsOver()) {
-        showEndScreen();
+function showQuestion(i) {
+    if (gameIsOver(i)) {
+        showEndScreen(i);
     } else {
-        progressBar();
-        updateNextQuestion();
+        progressBar(i);
+        updateNextQuestion(i);
     }
 }
 
-function gameIsOver() {
-    return nowQuestion >= flowerQuestions.length;
+function gameIsOver(i) {
+    return nowQuestion >= topic[i].questions.length;
 }
 
 
-function showEndScreen() {
+function showEndScreen(i) {
     document.getElementById('end-screen').style = '';
     document.getElementById('show-question').style = 'display: none';
-    document.getElementById('win-number-of-all-questions').innerHTML = flowerQuestions.length;
+    document.getElementById('win-number-of-all-questions').innerHTML = topic[i].questions.length;
     document.getElementById('win-right-answer').innerHTML = rightAnswer;
 }
 
 
-function progressBar() {
-    let checkAmountOfRightQuestions = (nowQuestion) / flowerQuestions.length;
+function progressBar(i) {
+    let checkAmountOfRightQuestions = (nowQuestion) / topic[i].questions.length;
     checkAmountOfRightQuestions = Math.round(checkAmountOfRightQuestions * 100);
     document.getElementById('progress-bar').innerHTML = `${checkAmountOfRightQuestions}%`;
     document.getElementById('progress-bar').style.width = `${checkAmountOfRightQuestions}%`;
 }
 
 
-function updateNextQuestion() {
-    let question = flowerQuestions[nowQuestion]; //questions
+function updateNextQuestion(i) {
+    let question = topic[i].questions[nowQuestion]; //questions
     document.getElementById('question-image').src = question['image'];
     document.getElementById('quiz-question').innerHTML = question['question'];
     document.getElementById('answer1').innerHTML = question['answer_1'];
@@ -57,8 +57,8 @@ function updateNextQuestion() {
 }
 
 
-function answer(selection) {
-    let question = flowerQuestions[nowQuestion]; //bezieht sich auf Array an stelle 0
+function answer(i, selection) {
+    let question = topic[i].questions[nowQuestion]; //bezieht sich auf Array an stelle 0
     let selectedNumber = selection.slice(-1); //gibt nur noch die letzte ziffer der ausgewählten id wieder z.b. 2
     let idForRightAnswer = `answer${question['right_answer']}`;
     updateProgressBar();
@@ -72,8 +72,8 @@ function answer(selection) {
 }
 
 
-function updateProgressBar() {
-    let checkAmountOfRightQuestions = (nowQuestion + 1) / flowerQuestions.length;
+function updateProgressBar(i) {
+    let checkAmountOfRightQuestions = (nowQuestion + 1) / topic[i].questions.length;
     checkAmountOfRightQuestions = Math.round(checkAmountOfRightQuestions * 100);
     document.getElementById('progress-bar').innerHTML = `${checkAmountOfRightQuestions}%`;
     document.getElementById('progress-bar').style.width = `${checkAmountOfRightQuestions}%`;
@@ -100,7 +100,7 @@ function PlayThrWrongAnswer(selection, idForRightAnswer) {
 }
 
 
-function blockAllAnswers() {
+function blockAllAnswers(selection) {
     document.getElementById(selection).parentNode.classList.add('pointer-events-none');
 }
 

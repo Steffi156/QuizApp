@@ -1,0 +1,67 @@
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: url('img/herbs.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-section {
+    background-color: rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    z-index: 999;
+}
+
+.quiz-footer {
+    border-top: solid lightgray 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bg-success, .bg-danger {
+    color: white;
+}
+
+.hover-pointer {
+    cursor: pointer;
+}
+
+.blackscreen {
+    z-index: 900;
+    background-color: black;
+}
+
+.win-document {
+    position: absolute;
+    top: 42px;
+    left: 80px;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 19px;
+}
+
+@media screen and (max-height: 885px) {
+    body {
+        height: 100%;
+        width: 100%;
+        background-size: auto;
+    }
+    
+.main-section {
+    position: absolute;
+    left: calc(50vw - 258px);
+    top: 100px;
+}
+
+.card {
+    margin-bottom: 50px;
+}
+}
+

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="script.js"></script>
-  <script src="script-arrays.js"></script>
+  <script src="script-json.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
@@ -38,13 +38,13 @@
                 <img class="img-left-top-circle" src="img/flowers/quiz-flower.png">
                 <div class="little-left-top-circle"></div>
                 <span class="text-left-top-circle">Blumen</span>
-                <div class="hover-left-top-circle" onclick="flowerQuiz()"></div>
+                <div class="hover-left-top-circle" onclick="theQuiz(0)"></div>
               </div>
               <div>
                 <img class="img-right-top-circle" src="img/trees/quiz-tree.png">
                 <div class="little-right-top-circle"></div>
                 <span class="text-right-top-circle">Bäume</span>
-                <div class="hover-right-top-circle" onclick="treeQuiz()"></div>
+                <div class="hover-right-top-circle" onclick="theQuiz(1)"></div>
               </div>
             </div>
             <div class="top">
@@ -52,13 +52,13 @@
                 <img class="img-left-bottom-circle" src="img/herbs/herb.jpg">
                 <div class="little-left-bottom-circle"></div>
                 <span class="text-left-bottom-circle">Kräuter</span>
-                <div class="hover-left-bottom-circle" onclick="herbQuiz()"></div>
+                <div class="hover-left-bottom-circle" onclick="theQuiz(2)"></div>
               </div>
               <div>
                 <img class="img-right-bottom-circle" src="img/edible-wild-plants/breitwegerrich - Kopie.jpg">
                 <div class="little-right-bottom-circle"></div>
                 <span class="text-right-bottom-circle">essbare<br>Wild-<br>pflanzen</span>
-                <div class="hover-right-bottom-circle" onclick="wildPlantsQuiz()"></div>
+                <div class="hover-right-bottom-circle" onclick="theQuiz(3)"></div>
               </div>
             </div>
           </div>
