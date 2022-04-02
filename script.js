@@ -1,52 +1,54 @@
 let nowQuestion = 0;
 let rightAnswer = 0;
+let topicIndex = 0; //damit kann Quiz - id glogal genutzt werden
 
 let AUDIO_RIGHT = new Audio('sound/correct.mp3');
-    AUDIO_RIGHT.volume = 0.2;
+    AUDIO_RIGHT.volume = 0.05;
 let AUDIO_WRONG = new Audio('sound/wrong.mp3');
-    AUDIO_WRONG.volume = 0.1;
+    AUDIO_WRONG.volume = 0.02;
 
-function theQuiz(i) {
+function theQuiz(id) { //i hat Wert aus HTML-Datei
+    topicIndex = id;
     document.getElementById('startAGame').style = 'display: none';
     document.getElementById('show-question').style = '';
-    document.getElementById('number-of-all-questions').innerHTML = topic[i].questions.length;
+    document.getElementById('number-of-all-questions').innerHTML = topic[topicIndex].questions.length;
     AUDIO_RIGHT.play(); 
-    showQuestion(i);
+    showQuestion();
     }
 
 
-function showQuestion(i) {
-    if (gameIsOver(i)) {
-        showEndScreen(i);
+function showQuestion() {
+    if (gameIsOver()) {
+        showEndScreen();
     } else {
-        progressBar(i);
-        updateNextQuestion(i);
+        progressBar();
+        updateNextQuestion();
     }
 }
 
-function gameIsOver(i) {
-    return nowQuestion >= topic[i].questions.length;
+function gameIsOver() {
+    return nowQuestion >= topic[topicIndex].questions.length;
 }
 
 
-function showEndScreen(i) {
+function showEndScreen() {
     document.getElementById('end-screen').style = '';
     document.getElementById('show-question').style = 'display: none';
-    document.getElementById('win-number-of-all-questions').innerHTML = topic[i].questions.length;
+    document.getElementById('win-number-of-all-questions').innerHTML = topic[topicIndex].questions.length;
     document.getElementById('win-right-answer').innerHTML = rightAnswer;
 }
 
 
-function progressBar(i) {
-    let checkAmountOfRightQuestions = (nowQuestion) / topic[i].questions.length;
+function progressBar() {
+    let checkAmountOfRightQuestions = (nowQuestion) / topic[topicIndex].questions.length;
     checkAmountOfRightQuestions = Math.round(checkAmountOfRightQuestions * 100);
     document.getElementById('progress-bar').innerHTML = `${checkAmountOfRightQuestions}%`;
     document.getElementById('progress-bar').style.width = `${checkAmountOfRightQuestions}%`;
 }
 
 
-function updateNextQuestion(i) {
-    let question = topic[i].questions[nowQuestion]; //questions
+function updateNextQuestion() {
+    let question = topic[topicIndex].questions[nowQuestion]; //questions
     document.getElementById('question-image').src = question['image'];
     document.getElementById('quiz-question').innerHTML = question['question'];
     document.getElementById('answer1').innerHTML = question['answer_1'];
@@ -57,8 +59,8 @@ function updateNextQuestion(i) {
 }
 
 
-function answer(i, selection) {
-    let question = topic[i].questions[nowQuestion]; //bezieht sich auf Array an stelle 0
+function answer(selection) {
+    let question = topic[topicIndex].questions[nowQuestion]; //bezieht sich auf Array an stelle 0
     let selectedNumber = selection.slice(-1); //gibt nur noch die letzte ziffer der ausgewählten id wieder z.b. 2
     let idForRightAnswer = `answer${question['right_answer']}`;
     updateProgressBar();
@@ -72,8 +74,8 @@ function answer(i, selection) {
 }
 
 
-function updateProgressBar(i) {
-    let checkAmountOfRightQuestions = (nowQuestion + 1) / topic[i].questions.length;
+function updateProgressBar() {
+    let checkAmountOfRightQuestions = (nowQuestion + 1) / topic[topicIndex].questions.length;
     checkAmountOfRightQuestions = Math.round(checkAmountOfRightQuestions * 100);
     document.getElementById('progress-bar').innerHTML = `${checkAmountOfRightQuestions}%`;
     document.getElementById('progress-bar').style.width = `${checkAmountOfRightQuestions}%`;
@@ -123,4 +125,3 @@ function restart() {
     rightAnswer = 0;
     AUDIO_RIGHT.play();
 }
-
