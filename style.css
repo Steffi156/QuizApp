@@ -42,13 +42,18 @@ video {
 }
 
 .main-section {
-    position: absolute;
-    top: 50px;
-    left: calc((100vw - 500px) / 2);
-    height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.start-section {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .height600 {
@@ -96,7 +101,7 @@ video {
 
 .little-left-top-circle {
     width: 150px;
-    height:150px;
+    height: 150px;
     border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
     background-color:rgba(116, 173, 10, 0.9);
     display: flex;
@@ -107,7 +112,7 @@ video {
 
 .img-left-top-circle {
     width: 200px;
-    height:200px;
+    height: 200px;
     margin: 20px;
     object-fit: cover;
     border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
@@ -121,7 +126,7 @@ video {
     color: white;
     font-size: 20px;;
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
     display: flex;
     position: absolute;
@@ -131,7 +136,7 @@ video {
 
 .hover-left-top-circle {
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
     display: flex;
     position: absolute;
@@ -142,7 +147,7 @@ video {
 .hover-left-top-circle:hover {
     cursor: pointer;
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
     background-color:rgba(239, 255, 61, 0.12);
     border: solid 2px white;
@@ -152,7 +157,7 @@ video {
 
 .little-right-top-circle {
     width: 150px;
-    height:150px;
+    height: 150px;
     border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
     background-color:rgba(116, 173, 10, 0.9);
     display: flex;
@@ -167,7 +172,7 @@ video {
     top: 120px;
     left: 250px;
     width: 200px;
-    height:200px;
+    height: 200px;
     margin: 10px;
     object-fit: cover;
     border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
@@ -177,7 +182,7 @@ video {
     color: white;
     font-size: 20px;;
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
     display: flex;
     position: absolute;
@@ -187,7 +192,7 @@ video {
 
 .hover-right-top-circle {
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
     display: flex;
     position: absolute;
@@ -198,7 +203,7 @@ video {
 .hover-right-top-circle:hover {
     cursor: pointer;
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
     background-color:rgba(239, 255, 61, 0.12);
     border: solid 2px white;
@@ -208,7 +213,7 @@ video {
 
 .little-left-bottom-circle {
     width: 150px;
-    height:150px;
+    height: 150px;
     border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
     background-color:rgba(116, 173, 10, 0.9);
     display: flex;
@@ -219,7 +224,7 @@ video {
 
 .img-left-bottom-circle {
     width: 200px;
-    height:200px;
+    height: 200px;
     margin: 20px;
     object-fit: cover;
     border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
@@ -233,7 +238,7 @@ video {
     color: white;
     font-size: 20px;;
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
     display: flex;
     position: absolute;
@@ -243,7 +248,7 @@ video {
 
 .hover-left-bottom-circle {
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
     display: flex;
     position: absolute;
@@ -254,7 +259,7 @@ video {
 .hover-left-bottom-circle:hover {
     cursor: pointer;
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
     background-color:rgba(239, 255, 61, 0.12);
     border: solid 2px white;
@@ -264,7 +269,7 @@ video {
 
 .little-right-bottom-circle {
     width: 150px;
-    height:150px;
+    height: 150px;
     border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
     background-color:rgba(116, 173, 10, 0.9);
     display: flex;
@@ -279,7 +284,7 @@ video {
     top: 340px;
     left: 250px;
     width: 200px;
-    height:200px;
+    height: 200px;
     margin: 10px;
     object-fit: cover;
     border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
@@ -289,7 +294,7 @@ video {
     color: white;
     font-size: 20px;;
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
     display: flex;
     position: absolute;
@@ -300,7 +305,7 @@ video {
 
 .hover-right-bottom-circle {
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
     display: flex;
     position: absolute;
@@ -311,7 +316,7 @@ video {
 .hover-right-bottom-circle:hover {
     cursor: pointer;
     width: 200px;
-    height:200px;
+    height: 200px;
     border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
     background-color:rgba(239, 255, 61, 0.12);
     border: solid 2px white;
@@ -341,9 +346,319 @@ video {
 }
 */
 
-@media screen and (max-height: 885px) {
+@media screen and (max-height: 900px) {
     body {
         height: 100%;
         background-size: auto;
     }
+
+    p {
+        font-size: 14px !important;
+    }
+
+    button {
+        font-size: 16px !important;
+    }
+
+    h1 {
+        left: 20px;
+        top: 20px;
+        font-size: 36px !important;
+    }
+
+    h2 {
+        margin-top: 40px !important;
+        font-size: 20px !important;
+    }
+
+    h5 {
+        font-size: 16px !important;
+    }
+
+    .card-img-end {
+        width: 400px !important;
+        height: 280px !important;
+        object-fit: cover;
+    }
+
+    .card-body {
+        font-size: 14px !important;
+        padding: 10px !important;
+    }
+
+    .card-img-top {
+        height: 200px !important;
+        object-fit: cover;
+    }
+
+    .transparency {
+        margin-top: 50px;
+        height: 480px;
+    }
+
+    .sound {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+    }
+
+    .main-section {
+        margin-top: 0;
+    }
+
+    .card {
+        width: 400px !important;
+    }
+
+    .mb-2, .mb-3 {
+        width: 350px !important;
+    }
+
+    .win-document {
+        position: absolute;
+        top: 64px;
+        left: 50px;
+        text-align: center;
+        font-family: 'Caveat', cursive;
+        font-size: 16px;
+    }
+    .start-section {
+        margin: 50px;
+    }
+/*left-top-circle*/
+
+.little-left-top-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
+    background-color:rgba(116, 173, 10, 0.9);
+    display: flex;
+    position: absolute;
+    top: 180px;
+    left: 90px;
+}
+
+.img-left-top-circle {
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    object-fit: cover;
+    border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
+    display: flex;
+    position: absolute;
+    top: 110px;
+    left: 20px;
+}
+
+.text-left-top-circle {
+    color: white;
+    font-size: 16px;;
+    width: 200px;
+    height: 200px;
+    border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
+    display: flex;
+    position: absolute;
+    top: 230px;
+    left: 120px;
+}
+
+.hover-left-top-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
+    display: flex;
+    position: absolute;
+    top: 130px;
+    left: 40px;
+}
+
+.hover-left-top-circle:hover {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    border-radius: 100% 0% 0% 100% / 100% 0% 0% 0%;
+    background-color:rgba(239, 255, 61, 0.12);
+    border: solid 2px white;
+}
+
+/*right-top-circle*/
+
+.little-right-top-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
+    background-color:rgba(116, 173, 10, 0.9);
+    display: flex;
+    position: absolute;
+    top: 180px;
+    left: 210px;
+}
+
+.img-right-top-circle {
+    display: flex;
+    position: absolute;
+    top: 120px;
+    left: 200px;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
+}
+
+.text-right-top-circle {
+    color: white;
+    font-size: 16px;;
+    width: 200px;
+    height: 200px;
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
+    display: flex;
+    position: absolute;
+    top: 230px;
+    left: 225px;
+}
+
+.hover-right-top-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
+    display: flex;
+    position: absolute;
+    top: 130px;
+    left: 210px;
+}
+
+.hover-right-top-circle:hover {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    border-radius: 0% 100% 0% 100% / 0% 100% 0% 0%;
+    background-color:rgba(239, 255, 61, 0.12);
+    border: solid 2px white;
+}
+
+/*left-bottom-circle*/
+
+.little-left-bottom-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
+    background-color:rgba(116, 173, 10, 0.9);
+    display: flex;
+    position: absolute;
+    top: 300px;
+    left: 90px;
+}
+
+.img-left-bottom-circle {
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    object-fit: cover;
+    border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
+    display: flex;
+    position: absolute;
+    top: 280px;
+    left: 20px;
+}
+
+.text-left-bottom-circle {
+    color: white;
+    font-size: 16px;;
+    width: 200px;
+    height:200px;
+    border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
+    display: flex;
+    position: absolute;
+    top: 320px;
+    left: 125px;
+}
+
+.hover-left-bottom-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
+    display: flex;
+    position: absolute;
+    top: 300px;
+    left: 40px;
+}
+
+.hover-left-bottom-circle:hover {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    border-radius: 100% 0% 0% 100% / 1% 0% 100% 100%;
+    background-color:rgba(239, 255, 61, 0.12);
+    border: solid 2px white;
+}
+
+/*right-bottom-circle*/
+
+.little-right-bottom-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
+    background-color:rgba(116, 173, 10, 0.9);
+    display: flex;
+    position: absolute;
+    top: 300px;
+    left: 210px;
+}
+
+.img-right-bottom-circle {
+    display: flex;
+    position: absolute;
+    top: 290px;
+    left: 200px;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
+}
+
+.text-right-bottom-circle {
+    color: white;
+    font-size: 16px;;
+    width: 150px;
+    height: 150px;
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
+    display: flex;
+    position: absolute;
+    top: 300px;
+    left: 215px;
+    text-align: center;
+}
+
+.hover-right-bottom-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
+    display: flex;
+    position: absolute;
+    top: 300px;
+    left: 210px;
+}
+
+.hover-right-bottom-circle:hover {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 0%;
+    background-color:rgba(239, 255, 61, 0.12);
+    border: solid 2px white;
+}
+
+}
+
+@media screen and (max-width: 600px) {
+
+    h1{
+        left: 16px;
+    }
+    .main-section {
+        margin-top: 20px;
+    }
+
 }

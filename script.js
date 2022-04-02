@@ -1,11 +1,13 @@
+let endScreen = ["All diese Blumen wachsen wild in Deutschland, vielleicht siehst du ein paar von ihnen bei deinem nächsten Spaziergang.", "Es gibt so viele verschiedene Bäume und alle haben noch viele verschiednen Unterarten.", "Viele Kräuter lassen sich einfach in der Wohnung, auf dem Balkon oder im Garten anbauen. Getrocknet sind sie lange haltbar.", "Aber Achtung, verzehre nur Pflanzen bei den dir du absolut sicher bist, dass sie bekömmlich sind! Es gibt viele Pflanzen die sich ähneln, manche sind Giftig, andere Nutzbar."]
+
 let nowQuestion = 0;
 let rightAnswer = 0;
 let topicIndex = 0; //damit kann Quiz - id glogal genutzt werden
 
 let AUDIO_RIGHT = new Audio('sound/correct.mp3');
-    AUDIO_RIGHT.volume = 0.05;
+    AUDIO_RIGHT.volume = 0.01;
 let AUDIO_WRONG = new Audio('sound/wrong.mp3');
-    AUDIO_WRONG.volume = 0.02;
+    AUDIO_WRONG.volume = 0.005;
 
 function theQuiz(id) { //i hat Wert aus HTML-Datei
     topicIndex = id;
@@ -36,6 +38,8 @@ function showEndScreen() {
     document.getElementById('show-question').style = 'display: none';
     document.getElementById('win-number-of-all-questions').innerHTML = topic[topicIndex].questions.length;
     document.getElementById('win-right-answer').innerHTML = rightAnswer;
+    document.getElementById('textEndScreen').innerHTML = "";
+    document.getElementById('textEndScreen').innerHTML = endScreen[topicIndex];
 }
 
 

@@ -19,7 +19,7 @@
 <body>
 
   <video src="video/nature.mp4" autoplay loop playsinline muted></video>
-  <audio class="sound" autoplay loop controls>
+  <audio class="sound" autoplay loop>
     <source src="sound/main-sound.mp3" type="audio/mpeg">
   </audio>
 
@@ -27,7 +27,7 @@
   <h1>Wald- und Wiesenquiz</h1>
 
 
-  <div class="main-section">
+  <div class="start-section">
     <div id="startAGame">
       <div class="transparency card" style="width: 500px;">
         <div class="height600">
@@ -55,7 +55,7 @@
                 <div class="hover-left-bottom-circle" onclick="theQuiz(2)"></div>
               </div>
               <div>
-                <img class="img-right-bottom-circle" src="img/edible-wild-plants/breitwegerrich - Kopie.jpg">
+                <img class="img-right-bottom-circle" src="img/edible-wild-plants/loewenzahn.png">
                 <div class="little-right-bottom-circle"></div>
                 <span class="text-right-bottom-circle">essbare<br>Wild-<br>pflanzen</span>
                 <div class="hover-right-bottom-circle" onclick="theQuiz(3)"></div>
@@ -116,7 +116,7 @@
 
   <div class="main-section" id="end-screen" style="display: none">
     <div class="card" style="width: 500px;">
-      <img id="question-image" src="img/win.jpg" class="card-img-top">
+      <img id="question-image" src="img/win.jpg" class="card-img-end">
       <div class="win-document">
         Du hast<br>
         <b id="win-right-answer">xxx</b><br>
@@ -127,7 +127,7 @@
       </div>
       <div class="card-body mt-4">
         <h5 id="quiz-question" class="card-title mb-3">Glückwunsch, du hast das Quiz beendet!</h5>
-        <p>Aber Achtung, verzehre nur Pflanzen bei den dir du absolut sicher bist, dass sie bekömmlich sind!<br>
+        <p id="textEndScreen">Aber Achtung, verzehre nur Pflanzen bei den dir du absolut sicher bist, dass sie bekömmlich sind!<br>
           Es gibt viele Pflanzen die sich ähneln, manche sind Giftig, andere Nutzbar.</p>
       </div>
 
